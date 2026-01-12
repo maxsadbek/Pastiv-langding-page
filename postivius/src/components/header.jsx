@@ -4,17 +4,20 @@ import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 
 const Header = () => {
-  const [isOPenMenu, setIsOpenMenu] = useState(false)
+  const [isOPenMenu, setIsOpenMenu] = useState(false);
 
-  const menuToggle = () =>{
-    setIsOpenMenu(!isOPenMenu)
+  const menuToggle = () => {
+    setIsOpenMenu(!isOPenMenu);
     console.log(isOPenMenu);
-
-  }
+  };
 
   return (
     <div className="container m-auto flex justify-between lg:px-30 px-2 py-6 items-center">
-      <img src={Logo} alt="this is logo" className="lg:w-auto w-[160px] cursor-pointer" />
+      <img
+        src={Logo}
+        alt="this is logo"
+        className="lg:w-auto w-[160px] cursor-pointer"
+      />
       <div className="flex gap-6">
         <ul className="hidden items-center gap-6 text-[18px] lg:flex">
           <li>
@@ -42,15 +45,28 @@ const Header = () => {
       </div>
 
       {isOPenMenu && (
-        <div className="fixed inset-0 z-50 p-4 bg-white">
+        <div className="fixed inset-0 z-50 p-4 bg-white flex flex-col items-center justify-center">
           <button
             onClick={menuToggle}
-            className="text-black text-3xl cursor-pointer hover:opacity-70 transition-opacity absolute right-3 p-1 hover:bg-gray-300 rounded-2xl duration-200 ease-in-out"
+            className="absolute top-5 right-5 text-black text-4xl hover:bg-gray-100 p-2 rounded-full transition-all"
             aria-label="Close menu"
           >
             <IoCloseOutline />
           </button>
-          d
+          <nav>
+            <ul className="flex flex-col gap-6 text-center">
+              {["About us", "Services", "Use Cases", "Pricing", "Blog"].map(
+                (item) => (
+                  <li
+                    key={item}
+                    className="text-2xl font-medium cursor-pointer transition-colors md:text-5xl"
+                  >
+                    {item}
+                  </li>
+                )
+              )}
+            </ul>
+          </nav>
         </div>
       )}
     </div>
