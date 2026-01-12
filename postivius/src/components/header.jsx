@@ -45,7 +45,8 @@ const Header = () => {
       </div>
 
       {isOPenMenu && (
-        <div className="fixed inset-0 z-50 p-4 bg-white flex flex-col items-center justify-center">
+        <div className="fixed top-0 right-0 h-full w-[70%] bg-white p-4 flex flex-col items-center justify-center shadow-lg z-50">
+          {" "}
           <button
             onClick={menuToggle}
             className="absolute top-5 right-5 text-black text-4xl hover:bg-gray-100 p-2 rounded-full transition-all"
@@ -54,12 +55,12 @@ const Header = () => {
             <IoCloseOutline />
           </button>
           <nav>
-            <ul className="flex flex-col gap-6 text-center">
+            <ul className="absolute gap-6 text-center left-12 top-30 md:left-40 ">
               {["About us", "Services", "Use Cases", "Pricing", "Blog"].map(
                 (item) => (
                   <li
                     key={item}
-                    className="text-2xl font-medium cursor-pointer transition-colors md:text-5xl"
+                    className="mb-5 text-2xl font-medium px-10 text-center cursor-pointer pb-2 p-2 transition-colors md:text-3xl w-full hover:bg-gray-200 max-w-full rounded-2xl"
                   >
                     {item}
                   </li>
