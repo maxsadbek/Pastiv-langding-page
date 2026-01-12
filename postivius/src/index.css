@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.bog-container{
+    @apply w-[1300px]
+}
