@@ -25,6 +25,7 @@ const CardData = [
     text2: "Marketing",
     img: Marketing,
     bgColor: "#191A23",
+    textColor: "#fff",
   },
   {
     id: 4,
@@ -45,6 +46,7 @@ const CardData = [
     text2: "Tracking",
     img: Tracing,
     bgColor: "#191A23",
+    textColor: "#fff",
   },
 ];
 

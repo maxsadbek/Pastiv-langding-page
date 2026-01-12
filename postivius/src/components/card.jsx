@@ -20,7 +20,7 @@ const Card = () => {
           return (
             <div
               key={item.id}
-              className={`p-10 border border-b-4 border-black rounded-[45px] flex justify-between items-center h-[300px] bg-[${item.bgColor}]`}
+              className={`p-10 border border-b-4 border-black rounded-[45px] flex justify-between items-center h-[300px] bg-[${item.bgColor}] `}
             >
               <div>
                 <h3 className="text-[26px] font-medium bg-[#B9FF66] inline-block px-1 rounded-sm">
@@ -32,7 +32,7 @@ const Card = () => {
                 </h3>
                 <div className="mt-9 flex items-center gap-4">
                   <img src={ButtonIcon} alt="" />
-                  <p>Learn more</p>
+                  <p className={`text-[${item.textColor}] text-[17px]`}>Learn more</p>
                 </div>
               </div>
 
