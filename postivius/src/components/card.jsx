@@ -4,7 +4,7 @@ import { IconBase } from "react-icons";
 
 const Card = () => {
   return (
-    <div className="container lg:px-30 px-2 mt-17">
+    <div className="container m-auto lg:px-30 px-2 mt-17">
       <div className="flex items-center gap-6 mb-10">
         <h2 className="px-3 py-0.5 bg-[#B9FF66] text-[30px] rounded-[7px] tracking-wide">
           Services
