@@ -32,7 +32,7 @@ const Card = () => {
                 </h3>
                 <div className="mt-9 flex items-center gap-4">
                   <img src={ButtonIcon} alt="" />
-                  <p className={`text-[${item.textColor}] text-[17px]`}>Learn more</p>
+                  <p className={`text-[${item.textColor}] text-[17px] cursor-pointer`}>Learn more</p>
                 </div>
               </div>
 
