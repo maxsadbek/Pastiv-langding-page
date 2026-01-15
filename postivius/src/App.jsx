@@ -3,6 +3,7 @@ import Hero from "./components/hero"
 import Card from "./components/card"
 import Contact from "./components/contact";
 import Case from "./components/case";
+import Process from "./components/process"
 import Logotyps from "./images/Logotypes.png";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Card />
       <Contact />
       <Case />
+      <Process />
     </div>
   )
 }
