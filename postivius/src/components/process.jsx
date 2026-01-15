@@ -1,103 +1,78 @@
 import { useState } from "react";
-import { CiCircleMinus } from "react-icons/ci";
+import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 
 const Process = () => {
-    const [isDropdown, setIsDropdown] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(null);
 
-    const dropToggle = () =>{
-        setIsDropdown(!isDropdown)
-    }
+  const steps = [
+    {
+      id: "01",
+      title: "Consultation",
+      desc: "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts.",
+    },
+    {
+      id: "02",
+      title: "Research and Strategy Development",
+      desc: "We conduct deep research into your industry competitors and target market.",
+    },
+    {
+      id: "03",
+      title: "Implementation",
+      desc: "Our team starts executing the agreed-upon strategy using best practices.",
+    },
+    {
+      id: "04",
+      title: "Monitoring and Optimization",
+      desc: "We track performance metrics and adjust the strategy for better results.",
+    },
+    {
+      id: "05",
+      title: "Reporting and Communication",
+      desc: "Regular updates and detailed reports on your campaign's progress.",
+    },
+    {
+      id: "06",
+      title: "Continual Improvement",
+      desc: "We constantly look for new opportunities to scale and grow your business.",
+    },
+  ];
 
-    return (
-      <div className="container px-30">
-        <br />
-        <div onClick={dropToggle}>
+  const toggleDropdown = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  return (
+    <div className="container mx-auto px-4 md:px-30 py-10">
+      {steps.map((step, index) => (
+        <div key={step.id} className="mb-6">
           <div
-            className={`flex items-center justify-between bg-[#fff] px-12 py-9 rounded-[30px] border-2 border-b-[5px] ${
-              isDropdown ? "bg-[#B9FF66] h-[300px]" : "bg-white h-auto"
+            onClick={() => toggleDropdown(index)}
+            className={`cursor-pointer px-12 py-9 rounded-[30px] border-2 border-b-[5px] border-black transition-all duration-300 ${
+              activeIndex === index ? "bg-[#B9FF66]" : "bg-[#F3F3F3]"
             }`}
           >
-            <div className="flex items-center gap-4">
-              <h2 className="text-5xl font-semibold">01</h2>
-              <p className="text-3xl">Conculation</p>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <h2 className="text-4xl md:text-5xl font-semibold">
+                  {step.id}
+                </h2>
+                <p className="text-xl md:text-3xl font-medium">{step.title}</p>
+              </div>
+              <div className="text-[40px] text-black">
+                {activeIndex === index ? <CiCircleMinus /> : <CiCirclePlus />}
+              </div>
             </div>
-            <p className="text-[40px] text-black">
-              <CiCircleMinus />
-            </p>
+
+            {activeIndex === index && (
+              <div className="border-t-2 border-black mt-4 pt-4 animate-fadeIn">
+                <p className="text-lg leading-relaxed">{step.desc}</p>
+              </div>
+            )}
           </div>
         </div>
-        <br />
-        <div>
-          <div className="flex items-center justify-between bg-[#fff] px-12 py-9 rounded-[30px] border-2 border-b-[5px]">
-            <div className="flex items-center gap-4">
-              <h2 className="text-5xl font-semibold">02</h2>
-              <p className="text-3xl">Research and Strategy Development</p>
-            </div>
-            <p className="text-[40px] text-black">
-              <CiCircleMinus />
-            </p>
-          </div>
-        </div>{" "}
-        <br />
-        <div>
-          <div className="flex items-center justify-between bg-[#fff] px-12 py-9 rounded-[30px] border-2 border-b-[5px]">
-            <div className="flex items-center gap-4">
-              <h2 className="text-5xl font-semibold">03</h2>
-              <p className="text-3xl">Implementation</p>
-            </div>
-            <p className="text-[40px] text-black">
-              <CiCircleMinus />
-            </p>
-          </div>
-        </div>{" "}
-        <br />
-        <div>
-          <div className="flex items-center justify-between bg-[#fff] px-12 py-9 rounded-[30px] border-2 border-b-[5px]">
-            <div className="flex items-center gap-4">
-              <h2 className="text-5xl font-semibold">04</h2>
-              <p className="text-3xl">Monitoring and Optimization</p>
-            </div>
-            <p className="text-[40px] text-black">
-              <CiCircleMinus />
-            </p>
-          </div>
-        </div>{" "}
-        <br />
-        <div>
-          <div className="flex items-center justify-between bg-[#fff] px-12 py-9 rounded-[30px] border-2 border-b-[5px]">
-            <div className="flex items-center gap-4">
-              <h2 className="text-5xl font-semibold">05</h2>
-              <p className="text-3xl">Reporting and Communication</p>
-            </div>
-            <p className="text-[40px] text-black">
-              <CiCircleMinus />
-            </p>
-          </div>
-        </div>{" "}
-        <br />
-        <div>
-          <div className="flex items-center justify-between bg-[#fff] px-12 py-9 rounded-[30px] border-2 border-b-[5px]">
-            <div className="flex items-center gap-4">
-              <h2 className="text-5xl font-semibold">06</h2>
-              <p className="text-3xl">Continual Improvement</p>
-            </div>
-            <p className="text-[40px] text-black">
-              <CiCircleMinus />
-            </p>
-          </div>
-        </div>
-        {isDropdown && (
-          <div>
-            <p>
-              During the initial consultation, we will discuss your business
-              goals and objectives, target audience, and current marketing
-              efforts. This will allow us to understand your needs and tailor
-              our services to best fit your requirements.
-            </p>
-          </div>
-        )}
-      </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default Process;
