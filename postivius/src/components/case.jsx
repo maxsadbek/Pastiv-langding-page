@@ -25,7 +25,7 @@ const Case = () => {
                 {item.text}
               </p>
 
-              <div className="text-[#B9FF66] mt-6 flex items-center gap-3 hover:gap-5 transition-all cursor-pointer">
+              <div className="text-[#B9FF66] mt-6 flex items-center gap-3 transition-all cursor-pointer">
                 <button className="cursor-pointer font-medium">
                   {item.button}
                 </button>
